@@ -5,6 +5,10 @@
   "files": [
     "index.js"
   ],
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "commit"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -23,6 +27,9 @@
     "node": ">=v14"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.6.6"
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/prompt-cli": "^17.6.6",
+    "husky": "^8.0.3"
   }
 }
