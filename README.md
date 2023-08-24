@@ -2,7 +2,7 @@
 
 Shareable `commitlint` config enforcing [conventional commits](https://conventionalcommits.org/).
 
-## Getting started
+## How to use in a project
 
 ```sh
 yarn add -D https://github.com/Guidap/commitlint-config.git
@@ -19,6 +19,10 @@ echo -e "module.exports = {\n\
 };" > commitlint.config.js
 ```
 
+## Update commit types
+
+Update types in the `index.js` file at the root of this repository.
+
 ## Commit Message Format
 
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special
@@ -32,62 +36,39 @@ format that includes a **type**, a **scope** and a **subject**:
 <footer>
 ```
 
-The **header** is mandatory and the **scope** of the header is optional.
+| header | The header is mandatory ;
+Any line of the commit message cannot be longer than 100 characters. |
+| --- | --- |
+| type | Part of the header, the commit type is mandatory and its value must respect allowed enumerations. |
+| scope | Part of the header, the commit scope is optional ;
+A commit can have multiple scopes separated by , |
+| subject | Part of the header, the subject contains succinct description of the change:
+ - use the imperative, present tense: "change" not "changed" nor "changes"
+ - don't capitalize first letter
+ - no dot (.) at the end |
+| body | The body can just be as the subject ;
+Use the imperative, present tense: "change" not "changed" nor "changes" ;
+The body should include the motivation for the change and contrast this with previous behavior. |
+| footer | The footer should contain the Jira task key that this commit relates to ;
+It is also the place to reference any information about Breaking Changes ;
+Breaking Changes should start with the word BREAKING CHANGE: with a space or two newlines. The rest of the commit message is then used for this. |
 
-Any line of the commit message cannot be longer than 100 characters! This allows the message to be easier
-to read on GitHub as well as in various git tools.
+## Types
 
-Footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
+| feat | Features | A new feature |
+| --- | --- | --- |
+| fix | Bug Fixes | A bug fix |
+| docs | Documentation | Documentation only changes |
+| style | Styles | Meaning code style ; Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).
+Don’t mistake that with CSS or any frontend design work. |
+| refactor | Code Refactoring | A code change that neither fixes a bug nor adds a feature |
+| perf | Performance Improvements | A code change that improves performance |
+| test | Tests | Adding missing tests or correcting existing tests |
+| build | Builds | Changes that affect the build system or external dependencies |
+| ci | Continuous Integrations | Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) |
+| infra | Infrastructure | Changes to Dockerfiles or infrastructure scripts or configurations |
+| chore | Chores | Other changes that don't modify src or test files (like updating version of package.json, dev tools, etc.) |
 
-Samples: (even more [samples][commits_samples])
+## More links
 
-```
-docs(changelog): update change log to beta.5
-fix(core): need to depend on latest rxjs and zone.js
-```
-
-### Type
-
-Must be one of the following:
-
-- **build**: Changes that affect the build system or external dependencies
-- **chore**: Updating tasks etc; no production code change
-- **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) 
-- **infra**: Changes to Dockerfiles or infrastructure scripts or configurations
-- **docs**: Documentation only changes
-- **feat**: A new feature
-- **fix**: A bug fix
-- **perf**: A code change that improves performance
-- **refactor**: A code change that neither fixes a bug nor adds a feature
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- **test**: Adding missing tests or correcting existing tests
-
-### Scope
-
-TODO: Explain in this section how to determine the right scopes for a project
-
-Multiple scopes separated by a comma (`,`) are allowed.
-
-Example: `docs(admin,api): update documentation of X feature`.
-
-### Subject
-
-The subject contains succinct description of the change:
-
-- use the imperative, present tense: "change" not "changed" nor "changes"
-- don't capitalize first letter
-- no dot (.) at the end
-
-### Body
-
-Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
-The body should include the motivation for the change and contrast this with previous behavior.
-
-### Footer
-
-The footer should contain any information about **Breaking Changes** and is also the place to
-reference Jira task that this commit relates to.
-
-**Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
-
-A detailed explanation can be found in this [document][commit-message-format].
+A complete cheatsheet is available here: https://www.notion.so/guidap/Conventional-commit-cheatsheet-f66acbe8900d40a4b8baa57674d8de17.
