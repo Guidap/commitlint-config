@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
-  ignores: [(message) => message === 'WIP'],
+  ignores: [(message) => message.includes('WIP')],
   helpUrl: 'https://github.com/Guidap/commitlint-config/blob/master/README.md',
   prompt: {
     enableMultipleScopes: true,
