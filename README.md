@@ -5,7 +5,7 @@ Shareable `commitlint` config enforcing [conventional commits](https://conventio
 ## How to use in a project
 
 ```sh
-yarn add -D https://github.com/Guidap/commitlint-config.git
+yarn add -D @guidap/commitlint-config@https://github.com/Guidap/commitlint-config
 echo -e "module.exports = {\n\
   extends: ['@guidap/commitlint-config'],\n\
   rules: {\n\
